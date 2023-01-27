@@ -3,7 +3,7 @@ DESIRED_WALLET=$@
 declare -a NW
 ANOTHER_VALUE=0
 DISPLAY="$ANOTHER_VALUE-${NW[$ANOTHER_VALUE]}"
-
+declare -a vo
 function reset_display {
           DISPLAY="$ANOTHER_VALUE-${NW[$ANOTHER_VALUE]}"
 }
@@ -35,7 +35,7 @@ function gv {
          display_green_ambush
          while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
          do
-         if [[ ${NW[$ANOTHER_VALUE]} == ${si[0]} || $ANOTHER_VALUE == ${si[0]} ]]; then
+         if [[ ${NW[$ANOTHER_VALUE]} == ${vo[0]} || $ANOTHER_VALUE == ${vo[0]} ]]; then
          reset_display
          echo $DISPLAY
          fi 
@@ -44,5 +44,8 @@ function gv {
          reset_another_value
 }
 
-alias va_manual="display_green_ambush && cat va_manual.txt"
+function rp {
+          NW[${vo[1]}]=${vo[2]} && echo ":replaced:"
+}
 
+alias va_manual="display_green_ambush && cat va_manual.txt"
