@@ -1,0 +1,2 @@
+cws(create wallet storage) dws(display wallet storage) gv(get variable)
+vo[0]=Wanted item or item number to be grabbed only vo[1]=Wanted item number to have item replaced vo[2]=Wanted modified item vo[3]=Wanted separator

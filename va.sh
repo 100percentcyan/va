@@ -2,11 +2,17 @@
 DESIRED_WALLET=$@
 declare -a NW
 ANOTHER_VALUE=0
-DISPLAY="$ANOTHER_VALUE-${NW[$ANOTHER_VALUE]}"
 declare -a vo
+
+default="-" && arrow="*->"
+vo[3]=$default
+
+DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
+
 function reset_display {
-          DISPLAY="$ANOTHER_VALUE-${NW[$ANOTHER_VALUE]}"
+          DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
 }
+
 function reset_another_value {
           ANOTHER_VALUE=0
 }
@@ -30,6 +36,7 @@ function dws {
           reset_another_value
           reset_display
 }
+
 
 function gv {
          display_green_ambush
