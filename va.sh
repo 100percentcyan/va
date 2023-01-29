@@ -3,14 +3,17 @@ DESIRED_WALLET=$@
 declare -a NW
 ANOTHER_VALUE=0
 declare -a vo
+declare -a cv
 
-default="-" && arrow="*->"
+default="-" && arrow="*->" && small_arrow="*>"
 vo[3]=$default
 
-DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
+declare -a DISPLAY
+DISPLAY[$ANOTHER_VALUE]="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
+
 
 function reset_display {
-          DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
+          DISPLAY[$ANOTHER_VALUE]="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
 }
 
 function reset_another_value {
@@ -25,12 +28,23 @@ function cws {
           done
 }
 
+function chrg {
+          ANOTHER_VALUE=${vo[4]}
+          while [[ $ANOTHER_VALUE -le ${vo[5]} ]]
+          do
+          cv[$ANOTHER_VALUE]=$ANOTHER_VALUE
+          (( ANOTHER_VALUE ++ ))
+          done
+          reset_another_value
+          vo[3]=vo[4]
+}
+
 function dws {
           echo -e "$ANGEL#"
           while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
           do
           reset_display
-          echo $DISPLAY
+          echo ${DISPLAY[$ANOTHER_VALUE]}
           (( ANOTHER_VALUE ++ ))
           done
           reset_another_value
