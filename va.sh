@@ -7,9 +7,6 @@ declare -a sth
 . va_init.sh
 DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
 
-function cgsp {
-          vo[3]=${vo[8]}
-}
 
 function reset_display {
           DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
@@ -23,7 +20,7 @@ function cws {
           echo -e "$CR#"
           for i in $DESIRED_WALLET;
           do
-          NW[$VALUE]=$i && (( VALUE ++ ))
+          NW[$VALUE]=$i && (( VALUE ++ )) && (( BACKUP_VALUE ++ ))
           done
 }
 
@@ -79,6 +76,16 @@ function gv {
 
 function rp {
           NW[${vo[1]}]=${vo[2]} && echo ":replaced:"
+}
+
+function fd {
+          ANOTHER_VALUE=${vo[4]}
+          VALUE=$((${vo[5]} + 1))
+}
+function rb {
+          reset_another_value
+          VALUE=$(($BACKUP_VALUE + 1))
+          reset_display
 }
 
 alias va_manual="display_green_ambush && cat va_manual.txt"
