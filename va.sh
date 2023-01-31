@@ -5,11 +5,11 @@ ANOTHER_VALUE=0
 declare -a cv
 declare -a sth
 . va_init.sh
-DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
+DISPLAY="$ANOTHER_VALUE${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
 
 
 function reset_display {
-          DISPLAY="$ANOTHER_VALUE${vo[3]}${NW[$ANOTHER_VALUE]}"
+          DISPLAY="$ANOTHER_VALUE${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
 }
 
 function reset_another_value {
@@ -53,7 +53,7 @@ function dws {
           while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
           do
           cfs
-          echo $DISPLAY
+          echo -e $DISPLAY
           (( ANOTHER_VALUE ++ ))
           done
           reset_another_value
@@ -66,8 +66,8 @@ function gv {
          while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
          do
          if [[ ${NW[$ANOTHER_VALUE]} == ${vo[0]} || $ANOTHER_VALUE == ${vo[0]} ]]; then
-         reset_display
-         echo $DISPLAY
+         DISPLAY="$ANOTHER_VALUE${vo[3]}$GREEN${NW[$ANOTHER_VALUE]}"
+         echo -e $DISPLAY
          fi 
          (( ANOTHER_VALUE ++ ))
          done
