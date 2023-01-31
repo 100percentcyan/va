@@ -78,14 +78,12 @@ function rp {
           NW[${vo[1]}]=${vo[2]} && echo ":replaced:"
 }
 
-function fd {
+function fsd {
           ANOTHER_VALUE=${vo[4]}
           VALUE=$((${vo[5]} + 1))
-}
-function rb {
-          reset_another_value
+          dws
           VALUE=$(($BACKUP_VALUE + 1))
-          reset_display
 }
+
 
 alias va_manual="display_green_ambush && cat va_manual.txt"
