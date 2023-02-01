@@ -48,12 +48,23 @@ function cfs {
           reset_display
           fi
 }
+
+function cfd {
+          if [[ ${vo[10]} == "num" ]]; then
+          echo -e $ANOTHER_VALUE
+          elif [[ ${vo[10]} == "item" ]]; then
+          echo -e ${NW[$ANOTHER_VALUE]}
+          else
+          echo -e $DISPLAY
+          fi
+}
+
 function dws {
           echo -e "$ANGEL#"
           while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
           do
           cfs
-          echo -e $DISPLAY
+          cfd
           (( ANOTHER_VALUE ++ ))
           done
           reset_another_value
