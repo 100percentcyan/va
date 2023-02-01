@@ -78,7 +78,7 @@ function gv {
          do
          if [[ ${NW[$ANOTHER_VALUE]} == ${vo[0]} || $ANOTHER_VALUE == ${vo[0]} ]]; then
          DISPLAY="$ANOTHER_VALUE${vo[3]}$GREEN${NW[$ANOTHER_VALUE]}"
-         echo -e $DISPLAY
+         cfd
          fi 
          (( ANOTHER_VALUE ++ ))
          done
