@@ -12,6 +12,8 @@ function reset_display {
           DISPLAY="$ANOTHER_VALUE${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
 }
 
+
+
 function reset_another_value {
           ANOTHER_VALUE=0
 }
@@ -50,13 +52,29 @@ function cfs {
 }
 
 function cfd {
-          if [[ ${vo[10]} == "num" ]]; then
-          echo -e $ANOTHER_VALUE
-          elif [[ ${vo[10]} == "item" ]]; then
-          echo -e ${NW[$ANOTHER_VALUE]}
-          else
-          echo -e $DISPLAY
-          fi
+          case ${vo[10]} in
+                    num)
+                              echo $ANOTHER_VALUE
+                              ;;
+                    item)
+                              echo -e ${NW[$ANOTHER_VALUE]}
+                              ;;
+
+                    num_sep)
+                              echo -e "$ANOTHER_VALUE${vo[3]}$YELLOW"
+                              ;;
+
+                    item_sep)
+                              echo -e "${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
+                              ;;
+                    .)
+                              echo -e $DISPLAY
+                              ;;
+          esac
+}
+
+function sas {
+          echo ". va.sh ${vo[11]}" >> ${vo[12]}
 }
 
 function dws {
