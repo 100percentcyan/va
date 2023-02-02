@@ -1,5 +1,6 @@
 #!/bin/bash
 declare -a vo
+BASIC_COLOR=$YELLOW
 default="-" && arrow="*->" && small_arrow="*>" && drift_lights="$MAGENTA-*-" && tri_lines="$WHITE---" && blue_ellipses="$BLUE..."
 if [[ ${vo[9]} != "constant" ]]; then
 vo[8]=$default
@@ -8,3 +9,7 @@ if [[ ${vo[10]} != "num" && ${vo[10]} != "item" && ${vo[10]} != "num_sep" && ${v
 vo[10]="."
 fi
 vo[3]=${vo[8]}
+
+function sas {
+          echo ". va.sh ${vo[11]}" >> ${vo[12]}
+}

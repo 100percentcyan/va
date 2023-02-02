@@ -5,11 +5,10 @@ ANOTHER_VALUE=0
 declare -a cv
 declare -a sth
 . va_init.sh
-DISPLAY="$ANOTHER_VALUE${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
-
+DISPLAY="$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
 
 function reset_display {
-          DISPLAY="$ANOTHER_VALUE${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
+          DISPLAY="$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
 }
 
 
@@ -59,22 +58,16 @@ function cfd {
                     item)
                               echo -e ${NW[$ANOTHER_VALUE]}
                               ;;
-
                     num_sep)
-                              echo -e "$ANOTHER_VALUE${vo[3]}$YELLOW"
+                              echo -e "$ANOTHER_VALUE${vo[3]}$BASIC_COLOR"
                               ;;
-
                     item_sep)
-                              echo -e "${vo[3]}$YELLOW${NW[$ANOTHER_VALUE]}"
+                              echo -e "${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
                               ;;
                     .)
                               echo -e $DISPLAY
                               ;;
           esac
-}
-
-function sas {
-          echo ". va.sh ${vo[11]}" >> ${vo[12]}
 }
 
 function dws {
@@ -92,15 +85,17 @@ function dws {
 
 function gv {
          display_green_ambush
+         BASIC_COLOR=$GREEN
          while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
          do
          if [[ ${NW[$ANOTHER_VALUE]} == ${vo[0]} || $ANOTHER_VALUE == ${vo[0]} ]]; then
-         DISPLAY="$ANOTHER_VALUE${vo[3]}$GREEN${NW[$ANOTHER_VALUE]}"
+         cfs
          cfd
          fi 
          (( ANOTHER_VALUE ++ ))
          done
          reset_another_value
+         BASIC_COLOR=$YELLOW
 }
 
 function rp {
