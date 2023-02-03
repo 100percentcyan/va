@@ -5,7 +5,7 @@ ANOTHER_VALUE=0
 declare -a cv
 declare -a sth
 . va_init.sh
-DISPLAY="$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
+DISPLAY="$ANOTHER_VALUE${vo[3]}$BG_BASIC_COLOR$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
 
 function reset_display {
           DISPLAY="$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
@@ -25,7 +25,7 @@ function cws {
           done
 }
 
-function chsr {
+function chrs {
           ANOTHER_VALUE=${vo[4]}
           while [[ $ANOTHER_VALUE -le ${vo[5]} ]]
           do
