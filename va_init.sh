@@ -1,7 +1,7 @@
 #!/bin/bash
 declare -a vo
 BASIC_COLOR=$YELLOW && BG_BASIC_COLOR=$NO_COLOR
-default="-" && arrow="*->" && small_arrow="*>" && drift_lights="$MAGENTA-*-" && tri_lines="$WHITE---" && blue_ellipses="$BLUE..." && green_ellipses="$GREEN..." && geo_comma="$BLUE,$GREEN,"
+default="-" && arrow="*->" && small_arrow="*>" && drift_lights="$MAGENTA-*-" && tri_lines="$LIGHT_GRAY---" && blue_ellipses="$BLUE..." && green_ellipses="$GREEN..." && geo_comma="$BLUE,$GREEN,"
 if [[ ${vo[9]} != "constant" ]]; then
 vo[8]=$default
 fi
