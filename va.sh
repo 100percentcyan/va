@@ -5,13 +5,15 @@ ANOTHER_VALUE=0
 declare -a cv
 declare -a sth
 . va_init.sh
-DISPLAY="$ANOTHER_VALUE${vo[3]}$BG_BASIC_COLOR$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
+DISPLAY="$BASIC_COLOR$ANOTHER_VALUE${vo[3]}$BG_BASIC_COLOR$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
 
 function reset_display {
-          DISPLAY="$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
+          DISPLAY="$BASIC_COLOR$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
 }
 
-
+function display {
+          echo -e $DISPLAY
+}
 
 function reset_another_value {
           ANOTHER_VALUE=0
@@ -53,19 +55,24 @@ function cfs {
 function cfd {
           case ${vo[10]} in
                     num)
-                              echo $ANOTHER_VALUE
+                              DISPLAY=$BASIC_COLOR$ANOTHER_VALUE
+                              display
                               ;;
                     item)
-                              echo -e ${NW[$ANOTHER_VALUE]}
+                              DISPLAY=$BASIC_COLOR${NW[$ANOTHER_VALUE]}
+                              display
                               ;;
                     num_sep)
-                              echo -e "$ANOTHER_VALUE${vo[3]}$BASIC_COLOR"
+                              DISPLAY="$BASIC_COLOR$ANOTHER_VALUE${vo[3]}$BASIC_COLOR"
+                              display
                               ;;
                     item_sep)
-                              echo -e "${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
+                              DISPLAY="$BASIC_COLOR${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
+                              display
                               ;;
                     .)
-                              echo -e $DISPLAY
+                              reset_display
+                              display
                               ;;
           esac
 }
@@ -79,13 +86,11 @@ function dws {
           (( ANOTHER_VALUE ++ ))
           done
           reset_another_value
-          reset_display
 }
 
 
 function gv {
          display_green_ambush
-         BASIC_COLOR=$GREEN
          while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
          do
          if [[ ${NW[$ANOTHER_VALUE]} == ${vo[0]} || $ANOTHER_VALUE == ${vo[0]} ]]; then
@@ -95,7 +100,6 @@ function gv {
          (( ANOTHER_VALUE ++ ))
          done
          reset_another_value
-         BASIC_COLOR=$YELLOW
 }
 
 function rp {

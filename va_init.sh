@@ -2,6 +2,7 @@
 declare -a vo
 BASIC_COLOR=$YELLOW && BG_BASIC_COLOR=$NO_COLOR
 default="-" && arrow="*->" && small_arrow="*>" && drift_lights="$MAGENTA-*-" && tri_lines="$LIGHT_GRAY---" && blue_ellipses="$BLUE..." && green_ellipses="$GREEN..." && geo_comma="$BLUE,$GREEN,"
+blue_waves="$BLUE~~"
 if [[ ${vo[9]} != "constant" ]]; then
 vo[8]=$default
 fi
@@ -33,6 +34,11 @@ function swrs {
 function swa {
           echo ${vo[13]} >> ${vo[12]}
 }
+
+function swb {
+          echo "BASIC_COLOR='$BASIC_COLOR'" >> ${vo[12]}
+}
+
 function ra {
           sas && swc && swv && swr && swrs && swa
 }
