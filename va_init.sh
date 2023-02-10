@@ -14,6 +14,7 @@ fi
 vo[3]=${vo[8]}
 
 function fm {
+          PAST_VALUE=$VALUE
           VALUE=13
           echo -e $brightness
           while [[ $ANOTHER_VALUE -le $VALUE ]]
@@ -22,7 +23,7 @@ function fm {
           (( ANOTHER_VALUE ++ ))
           done
           ANOTHER_VALUE=0
-          VALUE=0
+          VALUE=$PAST_VALUE
 }
 
 function sws {
