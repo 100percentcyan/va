@@ -1,8 +1,10 @@
 #!/bin/bash
 declare -a vo
-BASIC_COLOR=$YELLOW && BG_BASIC_COLOR=$NO_COLOR
+BASIC_COLOR=$YELLOW
 default="-" && arrow="*->" && small_arrow="*>" && drift_lights="$MAGENTA-*-" && tri_lines="$LIGHT_GRAY---" && blue_ellipses="$BLUE..." && green_ellipses="$GREEN..." && geo_comma="$BLUE,$GREEN,"
-blue_waves="$BLUE~~"
+blue_waves="$BLUE~~" && brightness="$LIGHT_GRAY,*,"
+
+ANOTHER_VALUE=0
 if [[ ${vo[9]} != "constant" ]]; then
 vo[8]=$default
 fi
@@ -10,6 +12,18 @@ if [[ ${vo[10]} != "num" && ${vo[10]} != "item" && ${vo[10]} != "num_sep" && ${v
 vo[10]="."
 fi
 vo[3]=${vo[8]}
+
+function fm {
+          VALUE=13
+          echo -e $brightness
+          while [[ $ANOTHER_VALUE -le $VALUE ]]
+          do
+          echo "vo[$ANOTHER_VALUE] ${vo[$ANOTHER_VALUE]}"
+          (( ANOTHER_VALUE ++ ))
+          done
+          ANOTHER_VALUE=0
+          VALUE=0
+}
 
 function sws {
           echo "#!/bin/bash" >> ${vo[12]}
