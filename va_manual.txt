@@ -1,4 +1,5 @@
 cws(create wallet storage) dws(display wallet storage) gv(get variable)(needs:vo[0]) chrs(change separator range style)(needs:vo[4] vo[5] vo[6]) fsd(fetch specific data)(needs:vo[4] vo[5]) rp(replace)(needs:vo[1] vo[2])
+ff(file folder)(needs:vo[4] vo[5])
 vo[0]=Wanted item or item number to be grabbed only vo[1]=Wanted item number to have item replaced vo[2]=Wanted modified item vo[3]=Wanted separator vo[4]=Starting point vo[5]=Ending point vo[6]=local separator
 vo[8]=global separator vo[9]=Constance vo[10]=mode of display("num","item","num_sep","item_sep",".") vo[11]=set up of va in a file which is ${vo[12]} vo[12]=file where va info can be set vo[13]=any info that can be saved such as '#hey!'
 
