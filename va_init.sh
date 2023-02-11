@@ -14,21 +14,19 @@ fi
 vo[3]=${vo[8]}
 
 function fm {
-          PAST_VALUE=$VALUE
-          VALUE=13
+          INFO_VALUE=13
           echo -e $brightness
-          while [[ $ANOTHER_VALUE -le $VALUE ]]
+          for i in {1..13};
           do
-          echo "vo[$ANOTHER_VALUE] ${vo[$ANOTHER_VALUE]}"
-          (( ANOTHER_VALUE ++ ))
+          echo "vo[$i] ${vo[$i]}"
           done
-          ANOTHER_VALUE=0
-          VALUE=$PAST_VALUE
 }
 
 function sws {
           echo "#!/bin/bash" >> ${vo[12]}
-          echo ". va.sh ${vo[11]}" >> ${vo[12]}
+          echo "vo[11]='${vo[11]}'" >> ${vo[12]}
+          echo "vo[12]=${vo[12]}" >> ${vo[12]}
+          echo ". va.sh \${vo[11]}" >> ${vo[12]}
 }
 
 function swg {
@@ -53,6 +51,7 @@ function swa {
 function swb {
           echo "BASIC_COLOR='$BASIC_COLOR'" >> ${vo[12]}
 }
+
 
 function ra {
           sas && swc && swv && swr && swrs && swa

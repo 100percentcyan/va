@@ -1,11 +1,10 @@
 #!/bin/bash
 DESIRED_WALLET=$@
 declare -a NW
-ANOTHER_VALUE=0
-declare -a cv
-declare -a sth
+declare -a RANGE_RECORD
+declare -a SEPARATOR_RECORD
 . va_init.sh
-DISPLAY="$BASIC_COLOR$ANOTHER_VALUE${vo[3]}$BG_BASIC_COLOR$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
+DISPLAY="$BASIC_COLOR$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
 
 function reset_display {
           DISPLAY="$BASIC_COLOR$ANOTHER_VALUE${vo[3]}$BASIC_COLOR${NW[$ANOTHER_VALUE]}"
@@ -31,7 +30,7 @@ function chrs {
           ANOTHER_VALUE=${vo[4]}
           while [[ $ANOTHER_VALUE -le ${vo[5]} ]]
           do
-          cv[$ANOTHER_VALUE]=$ANOTHER_VALUE
+          RANGE_RECORD[$ANOTHER_VALUE]=$ANOTHER_VALUE
           (( ANOTHER_VALUE ++ ))
           done
           reset_another_value
@@ -39,12 +38,12 @@ function chrs {
 }
 
 function cfs {
-          if [[ ${cv[$ANOTHER_VALUE]} == $ANOTHER_VALUE && ${vo[4]} -le ${cv[$ANOTHER_VALUE]} ]]; then
+          if [[ ${RANGE_RECORD[$ANOTHER_VALUE]} == $ANOTHER_VALUE && ${vo[4]} -le ${RANGE_RECORD[$ANOTHER_VALUE]} ]]; then
           vo[3]=${vo[6]}
           reset_display
-          sth[$ANOTHER_VALUE]=${vo[6]}
-          elif [[ ${sth[$ANOTHER_VALUE]} != "" && ${cv[$ANOTHER_VALUE]} == $ANOTHER_VALUE && ${cv[$ANOTHER_VALUE]} -le ${vo[4]} ]]; then
-          vo[3]=${sth[$ANOTHER_VALUE]}
+          SEPARATOR_RECORD[$ANOTHER_VALUE]=${vo[6]}
+          elif [[ ${SEPARATOR_RECORD[$ANOTHER_VALUE]} != "" && ${RANGE_RECORD[$ANOTHER_VALUE]} == $ANOTHER_VALUE && ${RANGE_RECORD[$ANOTHER_VALUE]} -le ${vo[4]} ]]; then
+          vo[3]=${SEPARATOR_RECORD[$ANOTHER_VALUE]}
           reset_display
           else
           vo[3]=${vo[8]}
@@ -55,11 +54,11 @@ function cfs {
 function cfd {
           case ${vo[10]} in
                     num)
-                              DISPLAY=$BASIC_COLOR$ANOTHER_VALUE
+                              DISPLAY="$BASIC_COLOR$ANOTHER_VALUE"
                               display
                               ;;
                     item)
-                              DISPLAY=$BASIC_COLOR${NW[$ANOTHER_VALUE]}
+                              DISPLAY="$BASIC${NW[$ANOTHER_VALUE]}"
                               display
                               ;;
                     num_sep)
@@ -86,6 +85,7 @@ function dws {
           (( ANOTHER_VALUE ++ ))
           done
           reset_another_value
+          reset_display
 }
 
 
@@ -112,6 +112,7 @@ function fsd {
           dws
           VALUE=$(($BACKUP_VALUE + 1))
 }
+
 
 
 alias va_manual="display_green_ambush && cat va_manual.txt"
