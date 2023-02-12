@@ -113,6 +113,14 @@ function fsd {
           VALUE=$(($BACKUP_VALUE + 1))
 }
 
-
+function ff {
+          FOLDER=$(( ${vo[4]} - 1 ))
+          FILE=${vo[4]}
+          while [[ $FILE -le ${vo[5]} ]]
+          do
+          NW[$FILE]=${NW[$FOLDER]}/${NW[$FILE]}
+          (( FILE ++ ))
+          done
+}
 
 alias va_manual="display_green_ambush && cat va_manual.txt"
