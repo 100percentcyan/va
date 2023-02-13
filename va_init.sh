@@ -2,7 +2,8 @@
 declare -a vo
 BASIC_COLOR=$YELLOW
 default="-" && arrow="*->" && small_arrow="*>" && drift_lights="$MAGENTA-*-" && tri_lines="$LIGHT_GRAY---" && blue_ellipses="$BLUE..." && green_ellipses="$GREEN..." && geo_comma="$BLUE,$GREEN,"
-blue_waves="$BLUE~~" && brightness="$LIGHT_GRAY,*,"
+blue_waves="$BLUE~~" && brightness="$LIGHT_GRAY,*," && blue_lights="$BLUE^*^"
+cinema_mode="$NO_COLOR $NO_COLOR "
 
 ANOTHER_VALUE=0
 if [[ ${vo[9]} != "constant" ]]; then
