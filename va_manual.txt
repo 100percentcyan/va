@@ -10,5 +10,6 @@ Styles:
 $default $arrow $small_arrow $drift_lights $tri_lines $blue_ellipses $geo_comma
 
 va_init_functions:
-sws(save wallet storage)(needs:vo[11] vo[12]) swg(save wallet global separator)(needs:vo[8]) swv(save wallet view)(needs:vo[10]) swr(save wallet range)(needs:vo[4] vo[5]) swrs(save wallet range style)(needs:vo[4] vo[5] vo[6]) swa(save wallet anything)(needs:vo[13]) 
-ra(run all)
+sws(save wallet storage)(needs: vo[11]) swg(save wallet global separator)(needs: vo[8]) swv(save wallet view)(needs: vo[10]) swr(save wallet range)(needs: vo[4] vo[5]) swrs(save wallet range style)(needs: vo[4] vo[5] vo[6]) swa(save wallet anything)(needs: vo[13]) 
+ra(run all) swss(save wallet storage script)(needs: vo[14]) swf(save wallet function)(needs: vo[13]=function name vo[14]=function)
+Note: All functions in va_init should need vo[12] which is the file name you will save your data on.
