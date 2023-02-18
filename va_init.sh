@@ -53,6 +53,15 @@ function swb {
           echo "BASIC_COLOR='$BASIC_COLOR'" >> ${vo[12]}
 }
 
+function swss {
+          echo ". ${vo[14]}" >> ${vo[12]}
+}
+
+function swf {
+    echo "function ${vo[13]} {" >> ${vo[12]}
+    echo ${vo[14]} >> ${vo[12]}
+    echo "}" >> ${vo[12]}
+}
 
 function ra {
           sas && swc && swv && swr && swrs && swa
