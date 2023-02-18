@@ -7,7 +7,7 @@ vo[4]-------vo[5]
       (creates range)
 
 Styles:
-$default $arrow $small_arrow $drift_lights $tri_lines $blue_ellipses $geo_comma
+$default $display_light $green_ambush $arrow $small_arrow $drift_lights $tri_lines $blue_ellipses $geo_comma
 
 va_init_functions:
 sws(save wallet storage)(needs: vo[11]) swg(save wallet global separator)(needs: vo[8]) swv(save wallet view)(needs: vo[10]) swr(save wallet range)(needs: vo[4] vo[5]) swrs(save wallet range style)(needs: vo[4] vo[5] vo[6]) swa(save wallet anything)(needs: vo[13]) 

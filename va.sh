@@ -77,7 +77,7 @@ function cfd {
 }
 
 function dws {
-          echo -e "$ANGEL#"
+          echo -e $display_light
           while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
           do
           cfs
@@ -90,7 +90,7 @@ function dws {
 
 
 function gv {
-         display_green_ambush
+         echo -e $green_ambush
          while [[ $ANOTHER_VALUE -le $(($VALUE - 1)) ]]
          do
          if [[ ${NW[$ANOTHER_VALUE]} == ${vo[0]} || $ANOTHER_VALUE == ${vo[0]} ]]; then
@@ -121,6 +121,11 @@ function ff {
           NW[$FILE]=${NW[$FOLDER]}/${NW[$FILE]}
           (( FILE ++ ))
           done
+}
+
+function cinema_mode {
+          vo[10]=item_sep
+          vo[8]=$cinema_mode
 }
 
 alias va_manual="display_green_ambush && cat va_manual.txt"
