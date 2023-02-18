@@ -2,3 +2,4 @@ You might have to put this on your bash.bashrc file:
 export RED="\033[31m" && export GREEN="\033[32m" && export YELLOW="\033[33m" && export BLUE="\033[34m" && export MAGENTA="\033[35m" && export FOREST="\033[36m" && export LIGHT_GRAY="\033[37m"
 export RED_BG="\033[41m" && export GREEN_BG="\033[42m" && export YELLOW_BG="\033[43m" && export BLUE_BG="\033[44m" && export MAGENTA_BG="\033[45m" export FOREST_BG="\033[46m" && export LIGHT_GRAY_BG="\033[47m"
 export NO_COLOR="\033[0m"
+export VALUE=0
